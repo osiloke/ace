@@ -4,7 +4,7 @@ import "io"
 
 // HTML
 const (
-	htmlBr = "<br>"
+	htmlBr = ""
 )
 
 // plainTextInner represents a plain text inner.

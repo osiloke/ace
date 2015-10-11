@@ -19,9 +19,9 @@ func (e *plainText) WriteTo(w io.Writer) (int64, error) {
 	// Write the plain text.
 	bf.WriteString(strings.Join(e.ln.tokens[1:], space))
 
-	if len(e.ln.tokens) > 1 && e.insertBr {
-		bf.WriteString(htmlBr)
-	}
+//	if len(e.ln.tokens) > 1 && e.insertBr {
+//		bf.WriteString(htmlBr)
+//	}
 
 	// Write the children's HTML.
 	if len(e.children) > 0 {
