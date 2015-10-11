@@ -12,7 +12,7 @@ var cacheMutex = new(sync.RWMutex)
 // and cached if the "DynamicReload" option are not set.
 func Load(basePath, innerPath string, opts *Options) (*template.Template, error) {
 	// Initialize the options.
-	opts = initializeOptions(opts)
+	opts = InitializeOptions(opts)
 
 	name := basePath + colon + innerPath
 
@@ -60,4 +60,11 @@ func setCache(name string, tpl template.Template) {
 	cacheMutex.Lock()
 	cache[name] = tpl
 	cacheMutex.Unlock()
+}
+
+// FlushCache clears all cached templates.
+func FlushCache() {
+       cacheMutex.Lock()
+       cache = make(map[string]template.Template)
+       cacheMutex.Unlock()
 }
